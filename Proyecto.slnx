@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/Elementos de la solución/">
+    <File Path=".gitignore" />
+  </Folder>
+  <Project Path="Proyecto.Abstracciones/Proyecto.Abstracciones.csproj" Id="c394b3cf-7ebf-4262-ad3a-15f1b0b1ee5f" />
+  <Project Path="Proyecto.AccesoADatos/Proyecto.AccesoADatos.csproj" Id="26a9b7d1-6969-49f3-8a97-90c56817bf71" />
+  <Project Path="Proyecto.LogicaDeNegocio/Proyecto.LogicaDeNegocio.csproj" Id="f78e45d5-30c6-4512-9fbc-ec8bd9b10f1b" />
+  <Project Path="Proyecto.UI/Proyecto.UI.csproj" Id="e2ebbf03-d729-4c9c-b58e-21d1afe50d03" />
+</Solution>

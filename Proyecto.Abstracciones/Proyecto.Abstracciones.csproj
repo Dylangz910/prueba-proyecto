@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C394B3CF-7EBF-4262-AD3A-15F1B0B1EE5F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Proyecto.Abstracciones</RootNamespace>
+    <AssemblyName>Proyecto.Abstracciones</AssemblyName>
+    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccesoADatos\ActividadesFinancieras\AgregarActividadesFinancierasAD\IAgregarActividadesFinancierasAD.cs" />
+    <Compile Include="AccesoADatos\ActividadesFinancieras\IEditarActividadesFinacierasAD\IEditarActividadesFinancierasAD.cs" />
+    <Compile Include="AccesoADatos\ActividadesFinancieras\ListaDeActividadesFinancieras\IObtenerListaDeActividadesFinancierasAD.cs" />
+    <Compile Include="AccesoADatos\ActividadesPersona\IActividadesPersonaAD.cs" />
+    <Compile Include="AccesoADatos\ArchivoAnalisis\IArchivosAnalisisAD.cs" />
+    <Compile Include="AccesoADatos\Personas\IPersonasAD.cs" />
+    <Compile Include="Entidades\ArchivoAnalisis.cs" />
+    <Compile Include="Entidades\Persona.cs" />
+    <Compile Include="LogicaDeNegocio\ActividadesFinancieras\ListaDeActividadesFinancieras\IObtenerListaDeActividadesFinancierasLN.cs" />
+    <Compile Include="LogicaDeNegocio\ActividadesPersona\IEliminarActividadPersonaLN.cs" />
+    <Compile Include="LogicaDeNegocio\ActividadesPersona\IObtenerActividadesPersonaLN.cs" />
+    <Compile Include="LogicaDeNegocio\ActividadesPersona\IRegistrarActividadPersonaLN.cs" />
+    <Compile Include="LogicaDeNegocio\General\GestionDeFechas\IFecha.cs" />
+    <Compile Include="LogicaDeNegocio\Personas\IObtenerListaDePersonas.cs" />
+    <Compile Include="ModelosParaUI\ActividadesFinancierasDTO.cs" />
+    <Compile Include="ModelosParaUI\ActividadesPersonaDTO.cs" />
+    <Compile Include="ModelosParaUI\ArchivoAnalisisDTO.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

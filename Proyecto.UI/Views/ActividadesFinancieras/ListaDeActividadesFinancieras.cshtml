@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Proyecto.Abstracciones.ModelosParaUI.ActividadesFinancierasDTO>
+
+@{
+    ViewBag.Title = "ListaDeActividadesFinancieras";
+}
+
+<h2>ListaDeActividadesFinancieras</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreActividadFinanciera)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NivelDeRiesgo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DescripcionActividadFinanciera)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaDeRegistro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Estado)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreActividadFinanciera)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NivelDeRiesgo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DescripcionActividadFinanciera)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaDeRegistro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Estado)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+        </td>
+    </tr>
+}
+
+</table>
