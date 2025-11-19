@@ -7,7 +7,7 @@
 <h2>ListaDeActividadesFinancieras</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Agregar Actividad Financiera", "AgregarActividadesFinancieras")
 </p>
 <table class="table">
     <tr>
@@ -47,7 +47,8 @@
             @Html.DisplayFor(modelItem => item.Estado)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Editar", "Editar", new { id = item.IdActividadFinanciera })
+
         </td>
     </tr>
 }

@@ -1,9 +1,14 @@
-﻿using Proyecto.Abstracciones.LogicaDeNegocio.ActividadesFinancieras.ListaDeActividadesFinancieras;
+﻿using Proyecto.Abstracciones.LogicaDeNegocio.ActividadesFinancieras.AgregarActividadesFinancieras;
+using Proyecto.Abstracciones.LogicaDeNegocio.ActividadesFinancieras.ListaDeActividadesFinancieras;
 using Proyecto.Abstracciones.ModelosParaUI;
+using Proyecto.LogicaDeNegocio.ActividadesFinancieras.AgregarActividadesFinancieras;
+using Proyecto.LogicaDeNegocio.ActividadesFinancieras.EditarActividadesFinancieras;
 using Proyecto.LogicaDeNegocio.ActividadesFinancieras.ListaDeActividadesFinancieras;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -12,10 +17,13 @@ namespace Proyecto.UI.Controllers
     public class ActividadesFinancierasController : Controller
     {
         private readonly IObtenerListaDeActividadesFinancierasLN _obtenerLaListaDeActividadesFinancierasLN;
+        private readonly EditarActividadesFinancierasLN _editarActividadesFinancierasLN;
+        private readonly AgregarActividadesFinancierasLN _agregarActividadesFinancierasLN;
         public ActividadesFinancierasController()
         {
             _obtenerLaListaDeActividadesFinancierasLN = new ObtenerListaDeActividadesFinancierasLN();
-
+            _editarActividadesFinancierasLN = new EditarActividadesFinancierasLN();
+            _agregarActividadesFinancierasLN = new AgregarActividadesFinancierasLN();
         }
 
 
@@ -40,20 +48,21 @@ namespace Proyecto.UI.Controllers
         }
 
         // GET: ActividadesFinancieras/Create
-        public ActionResult Create()
+        public ActionResult AgregarActividadesFinancieras()
         {
             return View();
         }
 
         // POST: ActividadesFinancieras/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public async Task<ActionResult> AgregarActividadesFinancieras(ActividadesFinancierasDTO lasActividadesFinancierasParaGuardar)
         {
             try
             {
                 // TODO: Add insert logic here
+                int cantidadDeFilasAfectadas = await _agregarActividadesFinancierasLN.Agregar(lasActividadesFinancierasParaGuardar);
 
-                return RedirectToAction("Index");
+                return RedirectToAction("ListaDeActividadesFinancieras");
             }
             catch
             {
@@ -62,20 +71,23 @@ namespace Proyecto.UI.Controllers
         }
 
         // GET: ActividadesFinancieras/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Editar(int id)
         {
-            return View();
+            ActividadesFinancierasDTO modelo = _obtenerLaListaDeActividadesFinancierasLN
+                                        .Obtener()
+                                        .FirstOrDefault(x => x.IdActividadFinanciera == id);
+            return View(modelo);
         }
 
         // POST: ActividadesFinancieras/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Editar(int id, ActividadesFinancierasDTO modelo)
         {
             try
             {
                 // TODO: Add update logic here
-
-                return RedirectToAction("Index");
+                int cantidadDeFilasAfectadas = _editarActividadesFinancierasLN.Editar(modelo);
+                return RedirectToAction("ListaDeActividadesFinancieras");
             }
             catch
             {
