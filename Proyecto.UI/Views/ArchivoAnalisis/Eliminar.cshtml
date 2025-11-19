@@ -1,0 +1,26 @@
+﻿@model Proyecto.Abstracciones.ModelosParaUI.ArchivoAnalisisDTO
+
+@{
+    ViewBag.Title = "Eliminar";
+}
+
+<h2>Eliminar Archivo</h2>
+
+<p>¿Está seguro que desea eliminar este archivo?</p>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Nombre</th>
+        <td>@Model.NombreArchivo</td>
+    </tr>
+    <tr>
+        <th>Tipo</th>
+        <td>@Model.TipoArchivo</td>
+    </tr>
+</table>
+
+<form method="post" action="@Url.Action("Eliminar", "ArchivosAnalisis")">
+    <input type="hidden" name="IdArchivoAnalisis" value="@Model.IdArchivoAnalisis" />
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a href="@Url.Action("Index", "ArchivosAnalisis")" class="btn btn-secondary">Cancelar</a>
+</form>

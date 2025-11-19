@@ -1,0 +1,37 @@
+﻿@model List<ArchivoAnalisis>
+
+<h2>Archivos de Análisis</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Registrar nuevo</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Texto del Archivo</th>
+            <th>Fuente</th>
+            <th>Fecha de Registro</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (ArchivoAnalisis item in Model)
+        {
+        <tr>
+            <td>@item.Nombre</td>
+            <td>
+                @(item.TextoDelArchivo.Length > 10
+                        ? item.TextoDelArchivo.Substring(0, 10) + "…"
+                        : item.TextoDelArchivo)
+            </td>
+            <td>@item.Fuente</td>
+            <td>@item.FechaDeRegistro.ToString("dd/MM/yyyy HH:mm")</td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.IdArchivo" class="btn btn-info btn-sm">Detalles</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Proyecto.Abstracciones.ModelosParaUI.ActividadesPersonaDTO>
+@{
+    ViewBag.Title = "Actividades de " + ViewBag.Persona.NombrePersona;
+}
+
+<h2>@ViewBag.Title</h2>
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">@TempData["Error"]</div>
+}
+
+<form method="post" action="@Url.Action("Agregar", "ActividadesPersona")">
+    <input type="hidden" name="idPersona" value="@ViewBag.Persona.IdPersona" />
+    <div class="row g-2">
+        <div class="col-auto">
+            <select name="idActividad" class="form-select" required>
+                <option value="">Seleccione una actividad</option>
+                @foreach (var opt in (IEnumerable<KeyValuePair<int, string>>)ViewBag.ActividadesDisponibles)
+                {
+                    <option value="@opt.Key">@opt.Value</option>
+                }
+            </select>
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-primary">Agregar</button>
+        </div>
+    </div>
+</form>
+
+<hr />
+
+<table class="table table-striped mt-3">
+    <thead class="table-dark">
+        <tr>
+            <th>Actividad Financiera</th>
+            <th>Nivel de Riesgo</th>
+            <th>Fecha de Registro</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.NombreActividadFinanciera</td>
+                <td>@item.NivelDeRiesgo</td>
+                <td>@item.FechaDeRegistro.ToShortDateString()</td>
+                <td class="text-end">
+                    <form method="post" action="@Url.Action("Eliminar","ActividadesPersona")">
+                        <input type="hidden" name="idActividadPersona" value="@item.IdActividadPersona" />
+                        <input type="hidden" name="idPersona" value="@ViewBag.Persona.IdPersona" />
+                        <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

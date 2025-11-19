@@ -1,0 +1,122 @@
+﻿@model Proyecto.Abstracciones.Entidades.Persona
+
+@{
+    ViewBag.Title = "DetallesPersona";
+}
+
+<h2>DetallesPersona</h2>
+
+<div>
+    <h4>Persona</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IdPersona)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdPersona)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdentificacionPersona)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdentificacionPersona)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoIdentificacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoIdentificacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NombrePersona)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombrePersona)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrimerApellidoPersona)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrimerApellidoPersona)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SegundoApellidoPersona)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SegundoApellidoPersona)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CorreoElectronico)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CorreoElectronico)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Direccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Direccion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EstadoDeRiesgo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EstadoDeRiesgo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaDeRegistro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaDeRegistro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaDeModificacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaDeModificacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.IdPersona }, new { @class = "btn btn-warning" })
+    @Html.ActionLink("Volver a la lista", "ListaDePersonas", null, new { @class = "btn btn-secondary" })
+</p>

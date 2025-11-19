@@ -1,0 +1,31 @@
+﻿@model Proyecto.Abstracciones.ModelosParaUI.ArchivoAnalisisDTO
+
+@{
+    ViewBag.Title = "Registrar Archivo";
+}
+
+<h2>Registrar Archivo</h2>
+
+<form method="post" action="@Url.Action("Crear", "ArchivosAnalisis")">
+    <div class="form-group">
+        <label>Id Persona:</label>
+        <input type="number" name="IdPersona" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Nombre Archivo:</label>
+        <input type="text" name="NombreArchivo" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Tipo Archivo:</label>
+        <input type="text" name="TipoArchivo" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Ruta Archivo:</label>
+        <input type="text" name="Ruta" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-success">Guardar</button>
+</form>

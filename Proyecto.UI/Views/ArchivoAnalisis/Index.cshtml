@@ -1,0 +1,37 @@
+﻿@model List<Proyecto.Abstracciones.ModelosParaUI.ArchivoAnalisisDTO>
+
+@{
+    ViewBag.Title = "Archivos de Análisis";
+}
+
+<h2>Archivos de Análisis</h2>
+
+<p>
+    <a href="@Url.Action("Crear", "ArchivosAnalisis")" class="btn btn-primary">Nuevo Archivo</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Tipo</th>
+            <th>Ruta</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Proyecto.Abstracciones.ModelosParaUI.ArchivoAnalisisDTO item in Model)
+        {
+            <tr>
+                <td>@item.NombreArchivo</td>
+                <td>@item.TipoArchivo</td>
+                <td>@item.Ruta</td>
+                <td>
+                    <a href="@Url.Action("Detalles", "ArchivosAnalisis", new { id = item.IdArchivoAnalisis })">Detalles</a> |
+                    <a href="@Url.Action("Editar", "ArchivosAnalisis", new { id = item.IdArchivoAnalisis })">Editar</a> |
+                    <a href="@Url.Action("Eliminar", "ArchivosAnalisis", new { id = item.IdArchivoAnalisis })">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

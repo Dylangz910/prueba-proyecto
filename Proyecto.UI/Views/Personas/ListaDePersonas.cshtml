@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Proyecto.Abstracciones.Entidades.Persona>
+
+@{
+    ViewBag.Title = "ListaDePersonas";
+}
+
+<h2>ListaDePersonas</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-bordered table-striped align-middle">
+    <thead class="table-dark">
+        <tr class="text-center">
+            <th>Identificación</th>
+            <th>Tipo</th>
+            <th>Nombre</th>
+            <th>Teléfono</th>
+            <th>Correo</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.IdentificacionPersona</td>
+                <td>@(item.TipoIdentificacion == 1 ? "Física" : "Jurídica")</td>
+                <td>@item.NombrePersona</td>
+                <td>@item.Telefono</td>
+                <td>@item.CorreoElectronico</td>
+                <td>@(item.Estado ? "Activo" : "Inactivo")</td>
+                <td class="text-center">
+                    @Html.ActionLink("Detalles", "Details", new { id = item.IdPersona }, new { @class = "btn btn-info btn-sm me-1" })
+                    @Html.ActionLink("Editar", "Edit", new { id = item.IdPersona }, new { @class = "btn btn-warning btn-sm me-1" })
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.IdPersona }, new { @class = "btn btn-danger btn-sm" })
+                    <a href="@Url.Action("Ver","ActividadesPersona", new { idPersona = item.IdPersona })"
+                       class="btn btn-primary btn-sm">Ver Actividades</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
